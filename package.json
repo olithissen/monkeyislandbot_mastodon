@@ -15,15 +15,6 @@
   "devDependencies": {},
   "scripts": {
     "test": "sls invoke local -f mibot --verbose --stage dev",
-    "start:local": "node server.js",
-    "start:serverless": "sls offline",
-    "precommit": "npm run encrypt",
-    "commit": "git add --all; git-cz",
-    "develop": "sls invoke local -f mibot --verbose --stage dev",
-    "deploy": "sls deploy --prod",
-    "predeploy": "npm run decrypt",
-    "encrypt": "sls encrypt --stage dev --password $PASSWORD ; sls encrypt --stage prod --password $PASSWORD",
-    "decrypt": "sls decrypt --stage dev --password $PASSWORD ; sls decrypt --stage prod --password $PASSWORD"
   },
   "author": "Oli Thissen",
   "license": "MIT"
