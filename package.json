@@ -1,0 +1,30 @@
+{
+  "name": "monkeybusiness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "de-loggingsystem": "^1.1.1",
+    "express": "^4.17.1",
+    "oauth": "^0.9.15",
+    "request": "^2.88.2",
+    "serverless-secrets-plugin": "^0.1.0",
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "sls invoke local -f mibot --verbose --stage dev",
+    "start:local": "node server.js",
+    "start:serverless": "sls offline",
+    "precommit": "npm run encrypt",
+    "commit": "git add --all; git-cz",
+    "develop": "sls invoke local -f mibot --verbose --stage dev",
+    "deploy": "sls deploy --prod",
+    "predeploy": "npm run decrypt",
+    "encrypt": "sls encrypt --stage dev --password $PASSWORD ; sls encrypt --stage prod --password $PASSWORD",
+    "decrypt": "sls decrypt --stage dev --password $PASSWORD ; sls decrypt --stage prod --password $PASSWORD"
+  },
+  "author": "Oli Thissen",
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+service: monkeybusiness
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: eu-central-1
+
+functions:
+  mibot:
+    handler: handler.mibot
+    environment:
+      CONSUMER_KEY: ${ssm:/mibot_consumer_key~true}
+      CONSUMER_SECRET: ${ssm:/mibot_consumer_secret~true}
+      ACCESS_TOKEN: ${ssm:/mibot_access_token~true}
+      ACCESS_TOKEN_SECRET: ${ssm:/mibot_access_token_secret~true}
+    events:
+      - schedule: cron(0 * * * ? *)
