@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "sls invoke local -f mibot --verbose --stage dev",
+    "test": "sls invoke local -f mibot --verbose --stage dev"
   },
   "author": "Oli Thissen",
   "license": "MIT"
