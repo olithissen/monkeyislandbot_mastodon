@@ -15,5 +15,6 @@ functions:
       CONSUMER_SECRET: ${ssm:/mibot_consumer_secret~true}
       ACCESS_TOKEN: ${ssm:/mibot_access_token~true}
       ACCESS_TOKEN_SECRET: ${ssm:/mibot_access_token_secret~true}
+    timeout: 60
     events:
       - schedule: cron(0 * * * ? *)
