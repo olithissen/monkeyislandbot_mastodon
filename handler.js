@@ -1,35 +1,39 @@
 'use strict';
 
-const https = require('https');
-const request = require('request');
-const logger = require('de-loggingsystem');
-const OAuth2 = require('oauth').OAuth2;
-const twit = require('twit');
-const quotes = require('./data/quotes');
+const axios = require('axios');
+const quotes = require('./data/quotes_de');
 
 module.exports.mibot = async event => {
 
-  let config = {
-    consumer_key: process.env.CONSUMER_KEY,
-    consumer_secret: process.env.CONSUMER_SECRET,
-    access_token: process.env.ACCESS_TOKEN,
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET
-  }
+    let cfg = {
+        access_token: process.env.ACCESS_TOKEN,
+        api_url: process.env.API_URL
+    }
 
-  const Twitter = new twit(config);
+    const response = await new Promise((resolve, reject) => {
+        let quote = quotes.getRandomQuote();
+        let status_message = `${quote}`;
+        console.log(`Trying to tweet "${status_message}"`);
+        var config = {
+            method: 'post',
+            url: `${cfg.api_url}/statuses`,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${cfg.access_token}`
+            },
+            data: JSON.stringify({status: status_message, language: 'de'})
+        };
 
-  const response = await new Promise((resolve, reject) => {
-    let quote = quotes.getRandomQuote();
-    let tweet = `${quote} #monkeyisland`;
-    logger.log(logger.LogLevel.info, `Trying to tweet "${tweet}"`);
-    Twitter.post('statuses/update', { status: tweet }, function (err, data, response) {
-      if (err) {
-        logger.log(logger.LogLevel.error, `Tweet was not posted. Errorcode: ${err}`, logger.ErrorCode.Error);
-      } else {
-        logger.log(logger.LogLevel.info, `Tweet posted`);
-      }
+        axios(config)
+            .then(function (res) {
+                console.log(JSON.stringify(res.data));
+                resolve(res.statusCode);
+            })
+            .catch(function (error) {
+                console.log(error);
+                reject(Error(error));
+            });
     });
-  });
 
-  return response;
+    return response;
 };
