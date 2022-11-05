@@ -6,6 +6,8 @@ A Mastodon-port of my Twitter bot (@monkeyislandbot) tweeting monkey island quot
 
 _I'm using https://mastodon.social in the examples but of course you can and should pick the instance of your choice._
 
+The Mastodon Bot is available at https://social.tchncs.de/@monkeyislandbot
+
 ## Tools
 
 You will need the following tools installed and configured
