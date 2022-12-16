@@ -1,4 +1,4 @@
-service: monkeybusiness-mastodon-de
+service: monkeybusiness-mastodon-en
 frameworkVersion: '3'
 
 provider:
@@ -11,7 +11,7 @@ functions:
   mibot:
     handler: handler.mibot
     environment:
-      ACCESS_TOKEN: ${ssm:/mibot_mastodon_de_access_token}
+      ACCESS_TOKEN: ${ssm:/mibot_mastodon_en_access_token}
       API_URL: ${ssm:/mibot_mastodon_de_api_url}
     timeout: 60
     events:

@@ -1,3 +1,7 @@
+The Mastodon Bot is available at 
+* 🇩🇪 https://social.tchncs.de/@monkeyislandbot
+* 🇺🇸 https://social.tchncs.de/@monkeyislandbot_en
+  
 # monkeyislandbot
 
 A Mastodon-port of my Twitter bot (@monkeyislandbot) tweeting monkey island quotes (while it could tweet basically anything)
@@ -5,8 +9,6 @@ A Mastodon-port of my Twitter bot (@monkeyislandbot) tweeting monkey island quot
 # Prerequisites 
 
 _I'm using https://mastodon.social in the examples but of course you can and should pick the instance of your choice._
-
-The Mastodon Bot is available at https://social.tchncs.de/@monkeyislandbot
 
 ## Tools
 

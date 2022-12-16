@@ -1,7 +1,7 @@
 'use strict';
 
 const axios = require('axios');
-const quotes = require('./data/quotes_de');
+const quotes = require('./data/quotes_en');
 
 module.exports.mibot = async event => {
 
@@ -21,7 +21,7 @@ module.exports.mibot = async event => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${cfg.access_token}`
             },
-            data: JSON.stringify({status: status_message, language: 'de'})
+            data: JSON.stringify({status: status_message, language: 'en'})
         };
 
         axios(config)
