@@ -4,7 +4,8 @@ The Mastodon Bot is available at
   
 # monkeyislandbot
 
-A Mastodon-port of my Twitter bot (@monkeyislandbot) tweeting monkey island quotes (while it could tweet basically anything)
+A Mastodon-port of my Twitter bot (@monkeyislandbot) posting monkey island quote, but it could tweet basically anything.
+(BTW: If you're wondering how I got the quotes out of the game in the first place: https://github.com/olithissen/MonkeyBusiness)
 
 # Prerequisites 
 
